@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.CollectionCondition;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +15,7 @@ public class AlfaTests {
         open("https://alfabank.ru/make-money/savings-account/");
         $(byTitle("Депозиты")).click();
         $(".col-sm-8 a").click();
-        Assertions.assertEquals(3, $$(".product-cell__cell-box > div").size());
+        $$(".product-cell__cell-box > div").shouldHave(CollectionCondition.size(3));
     }
 
     @Test
