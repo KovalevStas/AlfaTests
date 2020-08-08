@@ -4,7 +4,9 @@ import com.codeborne.selenide.CollectionCondition;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byTitle;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -23,8 +25,8 @@ public class AlfaTests {
     @Test
     void depositInsuranceTest() {
         open("https://alfabank.ru/make-money/savings-account/");
-        
-        $(byText("Накопительные счета").parent().sibling(4).click();
+
+        $(".selected").sibling(4).click();
         
         $(".frame-head").shouldHave(text("Страхование вкладов"));
     }
