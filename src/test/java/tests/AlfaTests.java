@@ -1,7 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.CollectionCondition;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.size;
@@ -10,7 +8,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byTitle;
 import static com.codeborne.selenide.Selenide.*;
 
-public class AlfaTests {
+public class AlfaTests extends TestBase {
 
     @Test
     void archiveDepositsTest() {
