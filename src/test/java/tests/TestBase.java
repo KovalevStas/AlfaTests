@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class TestBase {
 
     @BeforeAll
-    public void start() {
+    static void start() {
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .savePageSource(true)
                 .screenshots(true));
