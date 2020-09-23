@@ -3,6 +3,7 @@ package tests;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byTitle;
@@ -14,18 +15,9 @@ public class AlfaTests extends TestBase {
     void archiveDepositsTest() {
         open("https://alfabank.ru/make-money/savings-account/");
         
-        $(byTitle("Депозиты")).click();
-        $(byText("Архивные депозиты")).click();
+        $$("button").find(text("Депозиты")).click();
+        $(byText("Архивные счета и депозиты")).click();
         
-        $$(".product-cell__cell").shouldHave(size(3));
-    }
-
-    @Test
-    void depositInsuranceTest() {
-        open("https://alfabank.ru/make-money/savings-account/");
-
-        $(".selected").sibling(4).click();
-        
-        $(".frame-head").shouldHave(text("Страхование вкладов"));
+        $$("[data-widget-name='CatalogCard']").shouldHave(sizeGreaterThan(3));
     }
 }
