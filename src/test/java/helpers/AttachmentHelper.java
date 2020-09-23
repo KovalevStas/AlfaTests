@@ -27,17 +27,15 @@ public class AttachmentHelper {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
+
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static String attachVideo() {
-        String videoUrl = getVideoUrl();
-        System.out.println(videoUrl);
-
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
-                + videoUrl
+                + getWebVideoUrl()
                 + "' type='video/mp4'></video></body></html>";
     }
 
-    public static String getVideoUrl() {
+    public static String getWebVideoUrl() {
         try {
             return new URL(System.getProperty("video_storage_url") + getSessionId() + ".mp4") + "";
         } catch (MalformedURLException e) {

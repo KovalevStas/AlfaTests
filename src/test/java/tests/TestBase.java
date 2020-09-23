@@ -29,8 +29,8 @@ public class TestBase {
         attachScreenshot("Last screenshots");
         attachPageSource();
         attachAsText("Browser console logs",getConsoleLogs());
-        attachVideo();
         closeWebDriver();
+        attachVideo();
     }
     public static String getConsoleLogs(){
         return String.join("\n", Selenide.getWebDriverLogs(BROWSER));
