@@ -7,6 +7,7 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 repositories {
+    maven {url = "https://dl.bintray.com/qameta/maven-unstable/"}
     mavenCentral()
 }
 
@@ -30,8 +31,10 @@ dependencies {
 
             'org.seleniumhq.selenium:selenium-java:3.141.59',
             'io.github.bonigarcia:webdrivermanager:4.2.0',
-            'org.aeonbits.owner:owner:1.0.12'
+            'org.aeonbits.owner:owner:1.0.12',
     )
+            testCompile('io.qameta.allure:allure-ee-junit-platform:3.28.2')
+
 }
 
 allure {
@@ -43,7 +46,7 @@ allure {
 }
 
 tasks.withType(Test){
-    systemProperties = System.properties
+    systemProperties = System.properties as Map<String, ?>
 }
 
 test {
